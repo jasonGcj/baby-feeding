@@ -22,11 +22,8 @@ export const Storage = {
     
     getByDate(date) {
         const records = this.getAll();
-        const targetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
-        return records.filter(r => {
-            const recordDate = new Date(new Date(r.datetime).getTime() - new Date(r.datetime).getTimezoneOffset() * 60000).toISOString().split('T')[0];
-            return recordDate === targetDate;
-        });
+        const targetDate = date.toLocaleDateString('zh-CN');
+        return records.filter(r => new Date(r.datetime).toLocaleDateString('zh-CN') === targetDate);
     },
     
     export() {
