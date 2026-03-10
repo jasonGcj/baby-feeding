@@ -158,7 +158,18 @@ const App = {
                 </div>
                 <div class="form-group">
                     <label>奶量 (ml)</label>
-                    <input type="number" name="amount" placeholder="0" required>
+                    <select name="amount">
+                        <option value="30">30ml</option>
+                        <option value="60">60ml</option>
+                        <option value="90">90ml</option>
+                        <option value="120">120ml</option>
+                        <option value="150">150ml</option>
+                        <option value="180">180ml</option>
+                        <option value="210">210ml</option>
+                        <option value="240">240ml</option>
+                        <option value="270">270ml</option>
+                        <option value="300">300ml</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>奶源</label>
@@ -170,7 +181,17 @@ const App = {
                 </div>
                 <div class="form-group">
                     <label>时长（分钟）</label>
-                    <input type="number" name="duration" placeholder="0">
+                    <select name="duration">
+                        <option value="0">-</option>
+                        <option value="5">5分钟</option>
+                        <option value="10">10分钟</option>
+                        <option value="15">15分钟</option>
+                        <option value="20">20分钟</option>
+                        <option value="25">25分钟</option>
+                        <option value="30">30分钟</option>
+                        <option value="35">35分钟</option>
+                        <option value="40">40分钟</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>备注</label>
@@ -188,7 +209,7 @@ const App = {
             const formData = new FormData(e.target);
             const record = {
                 datetime: new Date(formData.get('datetime')).toISOString(),
-                amount: parseInt(formData.get('amount')) || 0,
+                amount: parseInt(formData.get('amount')),
                 source: formData.get('source'),
                 duration: parseInt(formData.get('duration')) || 0,
                 note: formData.get('note')
