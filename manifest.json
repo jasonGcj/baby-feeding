@@ -1,0 +1,16 @@
+{
+    "name": "宝宝吃奶记录",
+    "short_name": "吃奶记录",
+    "description": "记录宝宝吃奶情况",
+    "start_url": "./baby-feeding/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4A90D9",
+    "icons": [
+        {
+            "src": "./icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
