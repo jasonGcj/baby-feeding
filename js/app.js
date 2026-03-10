@@ -147,7 +147,7 @@ const App = {
     showAddModal() {
         const modal = document.getElementById('modal');
         const now = new Date();
-        const datetime = now.toISOString().slice(0, 16);
+        const datetime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
         
         modal.querySelector('.modal-content').innerHTML = `
             <h3>记录吃奶</h3>
