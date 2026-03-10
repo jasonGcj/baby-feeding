@@ -1,33 +1,7 @@
-const CACHE_NAME = 'baby-feeding-v2';
-const urlsToCache = [
-    './',
-    './index.html',
-    './css/styles.css',
-    './js/app.js',
-    './js/storage.js',
-    './js/stats.js',
-    './js/notifications.js',
-    './manifest.json',
-    './icons/icon.svg'
-];
+const CACHE_NAME = 'baby-feeding-v3';
 
 self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => cache.addAll(urlsToCache))
-    );
-});
-
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
-    );
+    self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -40,6 +14,18 @@ self.addEventListener('activate', (event) => {
                     }
                 })
             );
-        })
+        }).then(() => self.clients.claim())
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request)
+            .then((response) => {
+                if (response) {
+                    return response;
+                }
+                return fetch(event.request);
+            })
     );
 });
