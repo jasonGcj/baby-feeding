@@ -1,15 +1,14 @@
-const CACHE_NAME = 'baby-feeding-v1';
+const CACHE_NAME = 'baby-feeding-v2';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/css/styles.css',
-    '/js/app.js',
-    '/js/storage.js',
-    '/js/stats.js',
-    '/js/notifications.js',
-    '/manifest.json',
-    '/icons/icon-192.png',
-    '/icons/icon-512.png'
+    './',
+    './index.html',
+    './css/styles.css',
+    './js/app.js',
+    './js/storage.js',
+    './js/stats.js',
+    './js/notifications.js',
+    './manifest.json',
+    './icons/icon.svg'
 ];
 
 self.addEventListener('install', (event) => {
